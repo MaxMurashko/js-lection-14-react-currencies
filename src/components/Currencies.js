@@ -26,7 +26,7 @@ function Currencies () {
     return <div>
     <SearchByName searchByName = {searchByNameOrCode} />
     
-    <Table striped bordered hover>
+    <Table striped bordered variant="dark">
         <thead className="text-center">
             <tr>
                 <th className="w-50">
