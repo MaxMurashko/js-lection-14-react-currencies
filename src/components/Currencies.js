@@ -13,22 +13,18 @@ function Currencies () {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            setCurrencies(data.map(currency => ({
-                code: currency.cc,
-                name: currency.txt,
-                rate: currency.rate
-            })))
+            setCurrencies(data)
         });
     }, []);
     
-    function searchByName(name){
+    function searchByNameOrCode(name){
         setSearchValue(name); 
-        const result = currencies.filter(currency => currency.name.toLowerCase().trim().includes(name));
+        const result = currencies.filter(currency => currency.txt.toLowerCase().trim().includes(name) || currency.cc.toLowerCase().trim().includes(name));
         setFilteredCurrencies(result);
     }
 
     return <div>
-    <SearchByName searchByName = {searchByName} />
+    <SearchByName searchByName = {searchByNameOrCode} />
     
     <Table striped bordered hover>
         <thead className="text-center">
@@ -39,12 +35,13 @@ function Currencies () {
                 <th>
                     Exchange rate
                 </th>
+                <th>Currency code</th>
             </tr>
         </thead>
         <tbody>
             {(searchValue.length ? filteredCurrencies : currencies).map(currency => <Currency 
                 currency = {currency} 
-                key = {currency.code} />)}
+                key = {currency.r030} />)}
         </tbody>
     </Table></div>
 }
