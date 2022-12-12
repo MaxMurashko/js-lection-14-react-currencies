@@ -1,4 +1,4 @@
-.table-hover tbody tr:hover td{
+tbody tr:hover td{
     transform: scale(1.2);
     transition: 1s;
     background: green;
