@@ -35,7 +35,9 @@ function Currencies () {
                 <th>
                     Exchange rate
                 </th>
-                <th>Currency code</th>
+                <th>
+                    Currency code
+                </th>
             </tr>
         </thead>
         <tbody>
